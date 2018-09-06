@@ -24,15 +24,32 @@
         render() {
           return (
             <div>
-              <h1>Hello {this.props.name}!</h1>
-              <h2>Year: {this.state.year}</h2>
+              <h1>{this.props.name}</h1>
+              <h2>Basic info: {this.props.gender}, {this.props.dob}</h2>
+              <h2>Current Year: {this.state.year}</h2>
+              <h2>Favorite pet:</h2>
+              <img src={this.props.image} alt='Labrador Retriever'/>
             </div>
           );
         }
       }
 
+      Greeting.defaultProps = {
+        name: 'Hello, Richard!'
+      }
+
+      const info = {
+        gender: 'Male',
+        dob: 'August 17',
+        image: 'https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12231410/Labrador-Retriever-On-White-01.jpg'
+      }
+
       ReactDOM.render(
-        <Greeting name='Richard'/>, document.getElementById('app')
+        <Greeting
+        gender={info.gender}
+        dob={info.dob}
+        image={info.image}
+        />, document.getElementById('app')
       );
     </script>
   </body>
