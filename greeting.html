@@ -14,10 +14,18 @@
 
     <script type="text/babel">
       class Greeting extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            year: 2018
+          }
+        }
+
         render() {
           return (
             <div>
               <h1>Hello {this.props.name}!</h1>
+              <h2>Year: {this.state.year}</h2>
             </div>
           );
         }
